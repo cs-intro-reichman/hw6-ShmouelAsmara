@@ -214,6 +214,7 @@ public class Runigram {
 			double alpha = (double) (n - i) / n;
 			Color[][] blended = blend(source, target, alpha);
 			Runigram.display(blended);
+			StdDraw.pause(500);
 		}
 	}
 
