@@ -20,6 +20,9 @@ public class Runigram {
 		System.out.println();
 		print(image);
 
+		// blend test:
+		// System.out.print(blend(image, image, ));
+
 		//// Write here whatever code you need in order to test your work.
 		// //// You can continue using the image array.
 		// image = flippedVertically(tinypic);
@@ -172,10 +175,11 @@ public class Runigram {
 	 */
 	public static Color blend(Color c1, Color c2, double alpha) {
 
-		int red = (int) Math.round((alpha * c1.getRed()) + ((1 - alpha) * c2.getRed()));
-		int green = (int) Math.round((alpha * c1.getGreen()) + ((1 - alpha) * c2.getGreen()));
-		int blue = (int) Math.round((alpha * c1.getBlue()) + ((1 - alpha) * c2.getBlue()));
-		return new Color(red, green, blue);
+		int red = (int) Math.round(alpha * c1.getRed() + (1 - alpha) * c2.getRed());
+		int green = (int) Math.round(alpha * c1.getGreen() + (1 - alpha) * c2.getGreen());
+		int blue = (int) Math.round(alpha * c1.getBlue() + (1 - alpha) * c2.getBlue());
+		Color blendc = new Color(red, green, blue);
+		return blendc;
 	}
 
 	/**
@@ -187,7 +191,6 @@ public class Runigram {
 	 * The two images must have the same dimensions.
 	 */
 	public static Color[][] blend(Color[][] image1, Color[][] image2, double alpha) {
-		//// Replace the following statement with your code
 		int height = image1.length;
 		int width = image1[0].length;
 		Color[][] blendImage = new Color[height][width];
@@ -214,7 +217,7 @@ public class Runigram {
 			double alpha = (double) (n - i) / n;
 			Color[][] blended = blend(source, target, alpha);
 			Runigram.display(blended);
-			StdDraw.pause(500);
+			StdDraw.pause(300);
 		}
 	}
 
